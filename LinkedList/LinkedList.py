@@ -101,7 +101,7 @@ class LinkedList:
         raise NotImplementedError('Need to implement')
 
     def size(self):
-        raise NotImplementedError('Need to implement')
+        return self.size
 
     def to_list(self):
         as_list = []
