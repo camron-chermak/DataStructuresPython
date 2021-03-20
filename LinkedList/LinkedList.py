@@ -21,7 +21,30 @@ class LinkedList:
         self.size += 1
 
     def insert(self, index, value):
-        raise NotImplementedError('Need to implement')
+        if index >= self.size or index < 0:
+            return
+
+        newNode = ListNode(value)
+
+        if index == 0:
+            newNode.next = self.head
+            self.head = newNode
+            self.size += 1
+            return
+
+        if index == self.size - 1:
+            self.add(value)
+            return
+
+        curr = self.head
+        for i in range(index - 1):
+            curr = curr.next
+
+        newNode.next = curr.next
+        curr.next = newNode
+
+        self.size += 1
+
 
     def add_all(self, values):
         raise NotImplementedError('Need to implement')
