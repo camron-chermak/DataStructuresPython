@@ -50,6 +50,7 @@ class LinkedList:
         raise NotImplementedError('Need to implement')
 
     def add_first(self, value):
+        newNode = ListNode(value)
         newNode.next = self.head
         self.head = newNode
         self.size += 1
@@ -63,10 +64,15 @@ class LinkedList:
         self.size = 0
 
     def contains(self, value):
-        raise NotImplementedError('Need to implement')
+        curr = self.head
+        while curr is not None:
+            if curr.val == value:
+                return True
+            curr = curr.next
+        return False
 
     def element(self):
-        raise NotImplementedError('Need to implement')
+        return self.head
 
     def get(self, index):
         raise NotImplementedError('Need to implement')
