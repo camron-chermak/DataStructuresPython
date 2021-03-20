@@ -1,3 +1,5 @@
+from ListNode import ListNode
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -5,15 +7,26 @@ class LinkedList:
         self.size = 0
 
     def add(self, value):
-        raise NotImplementedError('Need to implement')
+        newNode = ListNode(value)
+        if self.size == 0:
+            self.head = newNode
+            self.tail = newNode
+        elif self.size == 1:
+            self.head.next = newNode
+            self.tail = newNode
+        else:
+            self.tail.next = newNode
+            self.tail = newNode
 
-    def add(self, index, value):
+        self.size += 1
+
+    def insert(self, index, value):
         raise NotImplementedError('Need to implement')
 
     def add_all(self, values):
         raise NotImplementedError('Need to implement')
 
-    def add_all(self, index, value):
+    def insert_all(self, index, value):
         raise NotImplementedError('Need to implement')
 
     def add_first(self, value):
@@ -52,13 +65,13 @@ class LinkedList:
     def poll(self):
         raise NotImplementedError('Need to implement')
 
-    def remove(self):
+    def remove_head(self):
         raise NotImplementedError('Need to implement')
 
-    def remove(self, index):
+    def remove_by_index(self, index):
         raise NotImplementedError('Need to implement')
 
-    def remove(self, value):
+    def remove_by_value(self, value):
         raise NotImplementedError('Need to implement')
 
     def set(self, index, value):
@@ -68,7 +81,13 @@ class LinkedList:
         raise NotImplementedError('Need to implement')
 
     def to_list(self):
-        raise NotImplementedError('Need to implement')
+        as_list = []
+        curr = self.head
+        while curr != None:
+            as_list.append(curr.val)
+            curr = curr.next
+        return as_list
+
 
     def __str__(self):
         raise NotImplementedError('Need to implement')
