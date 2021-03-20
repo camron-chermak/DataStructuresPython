@@ -27,9 +27,7 @@ class LinkedList:
         newNode = ListNode(value)
 
         if index == 0:
-            newNode.next = self.head
-            self.head = newNode
-            self.size += 1
+            self.add_first(value)
             return
 
         if index == self.size - 1:
@@ -52,7 +50,9 @@ class LinkedList:
         raise NotImplementedError('Need to implement')
 
     def add_first(self, value):
-        raise NotImplementedError('Need to implement')
+        newNode.next = self.head
+        self.head = newNode
+        self.size += 1
 
     def add_last(self, value):
         self.add(value)
