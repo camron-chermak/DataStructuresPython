@@ -59,7 +59,9 @@ class LinkedList:
         raise NotImplementedError('Need to implement')
 
     def clear(self):
-        raise NotImplementedError('Need to implement')
+        self.head = None
+        self.tail = None
+        self.size = 0
 
     def contains(self, value):
         raise NotImplementedError('Need to implement')
@@ -71,10 +73,10 @@ class LinkedList:
         raise NotImplementedError('Need to implement')
 
     def get_first(self):
-        raise NotImplementedError('Need to implement')
+        return self.head
 
     def get_last(self):
-        raise NotImplementedError('Need to implement')
+        return self.tail
 
     def index_of(self, value):
         raise NotImplementedError('Need to implement')
@@ -110,7 +112,6 @@ class LinkedList:
             as_list.append(curr.val)
             curr = curr.next
         return as_list
-
 
     def __str__(self):
         raise NotImplementedError('Need to implement')
