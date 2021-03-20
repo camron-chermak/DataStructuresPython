@@ -45,7 +45,6 @@ class LinkedList:
 
         self.size += 1
 
-
     def add_all(self, values):
         raise NotImplementedError('Need to implement')
 
@@ -56,7 +55,7 @@ class LinkedList:
         raise NotImplementedError('Need to implement')
 
     def add_last(self, value):
-        raise NotImplementedError('Need to implement')
+        self.add(value)
 
     def clear(self):
         self.head = None
