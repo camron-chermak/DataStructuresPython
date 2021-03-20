@@ -30,4 +30,16 @@ l.add(10)
 assert l.contains(5) == True
 assert l.contains(11) == False
 
+# Test get
+l = LinkedList()
+l.add(1)
+l.add(5)
+l.add(7)
+l.add(10)
+assert l.get(-1) is None
+assert l.get(4) is None
+assert l.get(1) == 5
+assert l.get(0) == 1
+assert l.get(3) == 10
+
 print('All the tests passed!')

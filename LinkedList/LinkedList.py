@@ -75,7 +75,12 @@ class LinkedList:
         return self.head
 
     def get(self, index):
-        raise NotImplementedError('Need to implement')
+        if index < 0 or index >= self.size:
+            return None
+        curr = self.head
+        for i in range(index):
+            curr = curr.next
+        return curr.val
 
     def get_first(self):
         return self.head
