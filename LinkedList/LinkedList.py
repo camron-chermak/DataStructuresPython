@@ -44,10 +44,13 @@ class LinkedList:
         self.num_elems += 1
 
     def add_all(self, values):
-        raise NotImplementedError('Need to implement')
+        for v in values:
+            self.add(v)
 
-    def insert_all(self, index, value):
-        raise NotImplementedError('Need to implement')
+    def insert_all(self, index, values):
+        for v in values:
+            self.insert(index, v)
+            index += 1
 
     def add_first(self, value):
         newNode = ListNode(value)
@@ -72,7 +75,10 @@ class LinkedList:
         return False
 
     def element(self):
-        return self.head
+        if self.head is None:
+            return None
+
+        return self.head.val
 
     def get(self, index):
         if index < 0 or index >= self.num_elems:
@@ -83,10 +89,12 @@ class LinkedList:
         return curr.val
 
     def get_first(self):
-        return self.head
+        return self.element()
 
     def get_last(self):
-        return self.tail
+        if self.tail is None:
+            return None
+        return self.tail.val
 
     def index_of(self, value):
         index = 0
@@ -110,10 +118,10 @@ class LinkedList:
         return matching
 
     def peek(self):
-        return self.head
+        return self.element()
 
     def poll(self):
-        if self.head == None:
+        if self.head is None:
             return None
 
         ret = self.head
@@ -124,7 +132,7 @@ class LinkedList:
             self.head = self.head.next
             self.num_elems -= 1
 
-        return ret
+        return ret.val
 
     def remove_head(self):
         self.poll()
@@ -146,7 +154,7 @@ class LinkedList:
             self.tail = curr
         self.num_elems -= 1
 
-        return ret
+        return ret.val
 
 
     def remove_by_value(self, value):
@@ -171,7 +179,15 @@ class LinkedList:
 
 
     def set(self, index, value):
-        raise NotImplementedError('Need to implement')
+        if index < 0 or index >= self.num_elems:
+            return None
+
+        curr = self.head
+        for i in range(1, index+1):
+            curr = curr.next
+
+        curr.val = value
+        return curr.val
 
     def size(self):
         return self.num_elems
@@ -179,10 +195,20 @@ class LinkedList:
     def to_list(self):
         as_list = []
         curr = self.head
-        while curr != None:
+        while curr is not None:
             as_list.append(curr.val)
             curr = curr.next
         return as_list
 
     def __str__(self):
-        raise NotImplementedError('Need to implement')
+        if self.head is None:
+            return ''
+
+        ret = ''
+        curr = self.head
+        while curr.next is not None:
+            ret += str(curr.val) + ' -> '
+            curr = curr.next
+        ret += str(curr.val)
+
+        return ret
