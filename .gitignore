@@ -4,3 +4,4 @@
 *.xml
 .idea/inspectionProfiles/Project_Default.xml
 *.pyc
+.idea/*
